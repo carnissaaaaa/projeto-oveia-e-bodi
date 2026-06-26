@@ -121,7 +121,7 @@ export default function Home() {
             {/* Image */}
             <div className="w-full lg:w-1/2 relative">
               <img
-                src="https://images.unsplash.com/photo-1542841791-1925b02a2bf8?auto=format&fit=crop&w=800&q=80"
+                src="https://imgs.search.brave.com/GKdNH9FaDkKDivR5-poMAZshMuxcAeCX5liRgHmSgHI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi91bi1j/cmlhZGVyby1kZS1v/dmlub3MtcGVkaWdy/JUMzJUFELXVuYS1n/cmFuamEtY3IlQzMl/QURhLXJhemEtcHVy/YS1tb250b25lcy1v/dmVqYXMtbmVncmFz/LXktYmxhbmNhcy1l/bi1lbC1ncmFuLWdy/YW5lcm8tbGEtMzM1/OTkyMTY5LmpwZw"
                 alt="Seleção genética e controle de rebanhos"
                 className="rounded-3xl shadow-md w-full h-[400px] object-cover"
               />
@@ -168,7 +168,7 @@ export default function Home() {
             {/* Image */}
             <div className="w-full lg:w-1/2 relative">
               <img
-                src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&q=80"
+                src="https://imgs.search.brave.com/43z6obrR64J-3Z_xElf9MRuR8gXKuLtEOkVcWEN2iSE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly96b290/ZWNuaWFicmFzaWwu/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIyLzAzL2xlaXRl/LWRlLWNhYnJhMy5q/cGc"
                 alt="Produção leiteira de ovinos e caprinos"
                 className="rounded-3xl shadow-md w-full h-[400px] object-cover"
               />
