@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { ShieldCheck, ShieldAlert, Heart, Info, Dna } from "lucide-react";
+import OvelhaCard from "@/components/OvelhaCard";
 
 interface Animal {
   id: string;
@@ -124,11 +125,10 @@ export default function AcasaladorConsanguinidade() {
               <button
                 key={spec}
                 onClick={() => { setSpeciesFilter(spec); handleReset(); }}
-                className={`px-4 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
-                  speciesFilter === spec
+                className={`px-4 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${speciesFilter === spec
                     ? "bg-la text-pasto shadow-sm"
                     : "text-cabrito/50 hover:text-cabrito"
-                }`}
+                  }`}
               >
                 {spec === "todos" ? "Todos" : spec === "caprino" ? "Caprinos" : "Ovinos"}
               </button>
@@ -146,21 +146,15 @@ export default function AcasaladorConsanguinidade() {
           </h4>
           <div className="space-y-2">
             {filteredMales.map((male) => (
-              <button
+              <OvelhaCard
                 key={male.id}
-                onClick={() => setSelectedMaleId(male.id)}
-                className={`w-full flex items-center gap-3 p-3 rounded-2xl border transition-all text-left ${
-                  selectedMaleId === male.id
-                    ? "border-pasto bg-pasto/5 ring-1 ring-pasto"
-                    : "border-areia bg-la hover:border-broto"
-                }`}
-              >
-                <img src={male.photo} alt={male.name} className="w-10 h-10 rounded-xl object-cover border border-areia" />
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-sm text-cabrito truncate">{male.name}</p>
-                  <span className="text-xs text-cabrito/50">{male.breed} · PTA <strong className="text-pasto">+{male.ptaLeite}L</strong></span>
-                </div>
-              </button>
+                nome={male.name}
+                raca={male.breed}
+                imagem={male.photo}
+                ptaLeite={male.ptaLeite}
+                selecionado={selectedMaleId === male.id}
+                onSelecionar={() => setSelectedMaleId(male.id)}
+              />
             ))}
           </div>
         </div>
@@ -172,21 +166,15 @@ export default function AcasaladorConsanguinidade() {
           </h4>
           <div className="space-y-2">
             {filteredFemales.map((female) => (
-              <button
+              <OvelhaCard
                 key={female.id}
-                onClick={() => setSelectedFemaleId(female.id)}
-                className={`w-full flex items-center gap-3 p-3 rounded-2xl border transition-all text-left ${
-                  selectedFemaleId === female.id
-                    ? "border-pasto bg-pasto/5 ring-1 ring-pasto"
-                    : "border-areia bg-la hover:border-broto"
-                }`}
-              >
-                <img src={female.photo} alt={female.name} className="w-10 h-10 rounded-xl object-cover border border-areia" />
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-sm text-cabrito truncate">{female.name}</p>
-                  <span className="text-xs text-cabrito/50">{female.breed} · PTA <strong className="text-pasto">+{female.ptaLeite}L</strong></span>
-                </div>
-              </button>
+                nome={female.name}
+                raca={female.breed}
+                imagem={female.photo}
+                ptaLeite={female.ptaLeite}
+                selecionado={selectedFemaleId === female.id}
+                onSelecionar={() => setSelectedFemaleId(female.id)}
+              />
             ))}
           </div>
         </div>
@@ -245,11 +233,10 @@ export default function AcasaladorConsanguinidade() {
           <button
             onClick={handleConfirm}
             disabled={!activeMale || !activeFemale || statusBadge === "critical" || statusBadge === "incompatible"}
-            className={`flex-1 py-3 rounded-full font-bold flex items-center justify-center gap-2 shadow-sm transition-all text-sm ${
-              activeMale && activeFemale && statusBadge !== "critical" && statusBadge !== "incompatible"
+            className={`flex-1 py-3 rounded-full font-bold flex items-center justify-center gap-2 shadow-sm transition-all text-sm ${activeMale && activeFemale && statusBadge !== "critical" && statusBadge !== "incompatible"
                 ? "bg-pasto hover:bg-broto text-la hover:text-cabrito"
                 : "bg-stone-300 text-stone-500 cursor-not-allowed shadow-none"
-            }`}
+              }`}
           >
             <Heart className="w-4 h-4 fill-current" />
             Confirmar Cobertura
