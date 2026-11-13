@@ -9,18 +9,14 @@ export default function ThemeToggle() {
   // Load theme from localStorage on mount. Default to light mode.
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    
-    if (savedTheme) {
-      setTheme(savedTheme);
-      if (savedTheme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
+    const isDark = savedTheme === "dark";
+
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+      setTimeout(() => setTheme("dark"), 0);
     } else {
-      // Default to light mode on first load so the user sees the original color palette
-      setTheme("light");
       document.documentElement.classList.remove("dark");
+      setTimeout(() => setTheme("light"), 0);
     }
   }, []);
 

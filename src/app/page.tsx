@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { LayoutDashboard, Dna, GlassWater, Award, ArrowRight, ShieldCheck, Check } from "lucide-react";
+import { LayoutDashboard, Dna, Award, ArrowRight, Check, PlusCircle } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
@@ -26,13 +26,20 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <nav className="hidden md:flex space-x-8 items-center text-sm font-medium text-cabrito/70">
+            <nav className="hidden md:flex space-x-6 items-center text-sm font-medium text-cabrito/70">
               <a href="#genetica" className="hover:text-pasto transition-colors">Genética</a>
               <a href="#leite" className="hover:text-pasto transition-colors">Qualidade Láctea</a>
               <a href="#derivados" className="hover:text-pasto transition-colors">Derivados Premium</a>
               <Link
+                href="/cadastro-ovelha"
+                className="border border-areia hover:border-pasto text-cabrito hover:text-pasto px-4 py-2 rounded-full font-semibold transition-all text-xs flex items-center gap-1.5"
+              >
+                <PlusCircle className="w-3.5 h-3.5 text-pasto" />
+                Cadastrar Animal
+              </Link>
+              <Link
                 href="/dashboard"
-                className="bg-pasto hover:bg-broto text-la hover:text-cabrito px-6 py-2.5 rounded-full font-semibold transition-all shadow-sm hover:shadow flex items-center gap-2 text-xs uppercase tracking-wider"
+                className="bg-pasto hover:bg-broto text-la hover:text-cabrito px-5 py-2.5 rounded-full font-semibold transition-all shadow-sm hover:shadow flex items-center gap-2 text-xs uppercase tracking-wider"
               >
                 <LayoutDashboard className="w-4 h-4" />
                 Acessar SGR
@@ -46,17 +53,17 @@ export default function Home() {
       <section className="relative pt-12 pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             {/* Left Column: Text */}
             <div className="z-10 text-center lg:text-left space-y-6 animate-fade-in-up">
               <span className="inline-block py-1 px-3.5 rounded-full bg-areia text-camurca text-xs font-bold uppercase tracking-widest border border-broto/30">
                 Foco em Leite & Genética de Ponta
               </span>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-cabrito leading-tight">
                 Melhoramento Genético e <span className="text-camurca">Qualidade Láctea</span>
               </h1>
-              
+
               <p className="text-base sm:text-lg text-cabrito/85 max-w-2xl leading-relaxed">
                 Desenvolvemos soluções científicas integradas para a ovinocaprinocultura leiteira. Maximizamos a produtividade e a robustez do rebanho utilizando a seleção genômica (PTAs, DEPs, chips SNP) aliada ao escore de manejo ideal.
               </p>
@@ -64,17 +71,18 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
                 <Link
                   href="/dashboard"
-                  className="bg-pasto hover:bg-broto hover:text-cabrito text-la px-8 py-4 rounded-full font-bold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group"
+                  className="bg-pasto hover:bg-broto hover:text-cabrito text-la px-7 py-3.5 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group"
                 >
                   Entrar no Portal do Produtor (SGR)
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <a
-                  href="#genetica"
-                  className="bg-la border-2 border-areia text-camurca hover:bg-areia/40 px-8 py-4 rounded-full font-bold text-base transition-all flex items-center justify-center"
+                <Link
+                  href="/cadastro-ovelha"
+                  className="bg-la border-2 border-areia text-camurca hover:border-pasto hover:text-pasto px-7 py-3.5 rounded-full font-bold text-sm transition-all flex items-center justify-center gap-2"
                 >
-                  Conhecer Pesquisa
-                </a>
+                  <PlusCircle className="w-4 h-4 text-pasto" />
+                  Cadastrar Animal
+                </Link>
               </div>
             </div>
 
@@ -86,7 +94,7 @@ export default function Home() {
                 alt="Ovinocaprinocultura de alta genética"
                 className="rounded-[2.5rem] shadow-xl w-full max-w-lg h-[400px] object-cover border-4 border-la"
               />
-              
+
               {/* Floating badges */}
               <div className="absolute top-8 -left-6 bg-la p-3.5 rounded-2xl shadow-lg border border-areia flex items-center gap-3">
                 <div className="bg-emerald-100 p-2 rounded-xl text-emerald-800">
@@ -117,7 +125,7 @@ export default function Home() {
       <section id="genetica" className="py-20 bg-areia/30 border-t border-areia">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            
+
             {/* Image */}
             <div className="w-full lg:w-1/2 relative">
               <img
@@ -164,7 +172,7 @@ export default function Home() {
       <section id="leite" className="py-20 bg-la border-t border-areia">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
-            
+
             {/* Image */}
             <div className="w-full lg:w-1/2 relative">
               <img
@@ -270,13 +278,13 @@ export default function Home() {
               </span>
             </div>
             <p className="text-xs text-areia/50 max-w-md text-center sm:text-right leading-relaxed">
-              Trabalho acadêmico desenvolvido como proposta de interface institucional de ovinocaprinocultura leiteira e controle genético (SGR).
+              Trabalho feito por individuos altamente qualificados, afim de promover uma maior eficiencia aos meios agronomos do estado do SIARA
             </p>
           </div>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-areia/40">
-            <p>&copy; 2026 Capri & Ovis. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Capri & Ovis. Os direitos a gente que decide.</p>
             <div className="flex gap-4">
-              <span>Embrapa Caprinos e Ovinos</span>
+              <span>qualquer coisa do Embrapa</span>
               <span>•</span>
               <span>Capragene® & Ovisleite</span>
             </div>
